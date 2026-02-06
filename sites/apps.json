@@ -1,0 +1,138 @@
+{
+    "frappe": {
+        "resolution": {
+            "commit_hash": null,
+            "branch": null
+        },
+        "required": [],
+        "idx": 1,
+        "version": "15.56.1"
+    },
+    "erpnext": {
+        "is_repo": true,
+        "resolution": {
+            "commit_hash": "171f9664216f5cd940de8df4c26c60967d3bdc1d",
+            "branch": "version-15"
+        },
+        "required": [],
+        "idx": 2,
+        "version": "15.53.4"
+    },
+    "hrms": {
+        "is_repo": true,
+        "resolution": {
+            "commit_hash": "88791bbf5b6b26c7077119021e687554272933fa",
+            "branch": "version-15"
+        },
+        "required": [],
+        "idx": 3,
+        "version": "15.40.0"
+    },
+    "healthcare": {
+        "is_repo": true,
+        "resolution": {
+            "commit_hash": "250c23ae2292310c03958ccf74b4bbcebd70df86",
+            "branch": "version-15"
+        },
+        "required": [],
+        "idx": 4,
+        "version": "15.1.14"
+    },
+    "posawesome": {
+        "is_repo": true,
+        "resolution": {
+            "commit_hash": "873a54bbd2106e3e861725d8d413aa0ef1010f02",
+            "branch": "develop"
+        },
+        "required": [],
+        "idx": 5,
+        "version": "15.13.3"
+    },
+    "intraerp_branding": {
+        "is_repo": false,
+        "resolution": "not a repo",
+        "required": [],
+        "idx": 6,
+        "version": "0.0.1"
+    },
+    "lms": {
+        "is_repo": true,
+        "resolution": {
+            "commit_hash": "aad875f72cedccf2a548ff4f6b648ab83cc80b22",
+            "branch": "develop"
+        },
+        "required": [],
+        "idx": 7,
+        "version": "2.44.0"
+    },
+    "fsc_custom": {
+        "is_repo": true,
+        "resolution": {
+            "commit_hash": "f8700c8adedd92fac7c34b464a1abf0810a8c2cd",
+            "branch": "develop"
+        },
+        "required": [],
+        "idx": 8,
+        "version": "0.0.1"
+    },
+    "webshop": {
+        "is_repo": true,
+        "resolution": {
+            "commit_hash": "43d34cb81d35f3b10d874678985335629d4047ab",
+            "branch": "develop"
+        },
+        "required": [],
+        "idx": 9,
+        "version": "0.0.1"
+    },
+    "education": {
+        "is_repo": true,
+        "resolution": {
+            "commit_hash": "323c52d040e552622bd8c715d318e4fab3ccc97d",
+            "branch": "develop"
+        },
+        "required": [],
+        "idx": 10,
+        "version": "15.5.3"
+    },
+    "insights": {
+        "is_repo": true,
+        "resolution": {
+            "commit_hash": "f549a01e50913d7c75778bb32e7c146b1a080df2",
+            "branch": "develop"
+        },
+        "required": [],
+        "idx": 11,
+        "version": "3.2.0-dev"
+    },
+    "print_designer": {
+        "is_repo": true,
+        "resolution": {
+            "commit_hash": "102d75a6ce6cf1cd38ed1c4bdc5d74d1da688a12",
+            "branch": "develop"
+        },
+        "required": [],
+        "idx": 12,
+        "version": "1.6.4"
+    },
+    "payments": {
+        "is_repo": true,
+        "resolution": {
+            "commit_hash": "92a9cfbd739c54a8e4d3e84edb85eed0b64fb5b4",
+            "branch": "develop"
+        },
+        "required": [],
+        "idx": 13,
+        "version": "0.0.1"
+    },
+    "woocommerce_fusion": {
+        "is_repo": true,
+        "resolution": {
+            "commit_hash": "fa4dc01bd592832e3516b56e329f6d7eede279a7",
+            "branch": "version-15"
+        },
+        "required": [],
+        "idx": 14,
+        "version": "1.16.0"
+    }
+}

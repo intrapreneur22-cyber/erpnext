@@ -1,0 +1,19 @@
+.print-designer-wrapper {
+    display:flex;
+    flex-direction:column;
+    overflow: auto;
+    background-color: var(--control-bg);
+    border-radius: var(--border-radius);
+
+    .preview-container {
+        margin: 40px 10px;
+    }
+}
+@media only screen and (min-width: 700px) {
+    .print-designer-wrapper {
+        align-items:center;
+        .preview-container {
+            margin: 40px;
+        }
+    }
+}

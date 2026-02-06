@@ -1,0 +1,14 @@
+frappe
+woocommerce_fusion
+payments
+education
+posawesome
+intraerp_branding
+insights
+erpnext
+healthcare
+fsc_custom
+print_designer
+hrms
+webshop
+lms

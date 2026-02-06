@@ -1,0 +1,13 @@
+/* IntraERP Branding - Custom CSS */
+
+/* Hide Help menu */
+.dropdown-help,
+li.dropdown:has(.dropdown-help),
+.navbar-nav li:has(a[data-label="Help"]) {
+    display: none !important;
+}
+
+/* Ensure IntraERP branding is prominent */
+.navbar-brand {
+    font-weight: bold;
+}
