@@ -7,7 +7,6 @@ on:
 
 jobs:
   deploy:
-    # This is the magic line that tells it to run on YOUR local machine
     runs-on: self-hosted
     
     steps:
@@ -16,15 +15,19 @@ jobs:
 
       - name: Deploy Local Bench
         run: |
+          # Use bash explicitly
+          export PATH=$PATH:/usr/local/bin:/home/frappe/.local/bin
+          
           cd /home/frappe/frappe-bench
           
-          # 1. Pull the latest code
+          # 1. Clear local changes that might block git pull
+          git checkout .
           git pull origin main
           
           # 2. Update the database
-          # We use the full path to bench to ensure it's found
-          bench migrate
+          # Use the full path for bench just in case
+          /usr/local/bin/bench migrate
           
           # 3. Clear cache and restart
-          bench clear-cache
-          bench restart
+          /usr/local/bin/bench clear-cache
+          /usr/local/bin/bench restart
