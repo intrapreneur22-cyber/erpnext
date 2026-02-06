@@ -1,0 +1,42 @@
+name: Deploy ERPNext Bench
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      - name: Deploy to Server via SSH
+        uses: appleboy/ssh-action@v1.0.3
+        with:
+          host: ${{ secrets.SERVER_IP }}
+          username: ${{ secrets.SERVER_USER }}
+          key: ${{ secrets.SSH_PRIVATE_KEY }}
+          port: 22
+          script: |
+            # 1. Enter the bench directory
+            cd /home/frappe/frappe-bench
+            
+            # 2. Pull the latest code from GitHub
+            # We use --force if you've made manual edits on the server, 
+            # but usually a standard pull is safer for production.
+            git pull origin main
+            
+            # 3. Securely update the database schema and run patches
+            # This is the most critical step in Frappe deployments
+            bench migrate
+            
+            # 4. Rebuild JS/CSS assets (crucial if you modify UI)
+            # bench build
+            
+            # 5. Clear application cache
+            bench clear-cache
+            
+            # 6. Restart all services (Web, Workers, Socketio)
+            bench restart
