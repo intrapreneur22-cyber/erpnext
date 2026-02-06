@@ -26,11 +26,11 @@ jobs:
           git clean -fd
           
           echo "--- Bench Migrate ---"
-          # Using --site all to update all sites on this bench
           /usr/local/bin/bench --site all migrate
           
           echo "--- Bench Post-Deploy ---"
-          /usr/local/bin/bench clear-cache
+          # Adding --site all to clear-cache to avoid the 'specify site' error
+          /usr/local/bin/bench --site all clear-cache
           /usr/local/bin/bench restart
           
           echo "=== Deployment Finished Successfully ==="
