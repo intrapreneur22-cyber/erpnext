@@ -12,7 +12,6 @@ jobs:
     steps:
       - name: Deploy Local Bench
         run: |
-          # Redirect all output to a log file we can read
           LOG_FILE="/home/frappe/frappe-bench/deployment.log"
           exec > >(tee -a "$LOG_FILE") 2>&1
           
@@ -22,13 +21,13 @@ jobs:
           cd /home/frappe/frappe-bench
           
           echo "--- Git Operations ---"
-          # Force clean and reset to match GitHub exactly
           git fetch origin main
           git reset --hard origin/main
           git clean -fd
           
           echo "--- Bench Migrate ---"
-          /usr/local/bin/bench migrate
+          # Using --site all to update all sites on this bench
+          /usr/local/bin/bench --site all migrate
           
           echo "--- Bench Post-Deploy ---"
           /usr/local/bin/bench clear-cache
