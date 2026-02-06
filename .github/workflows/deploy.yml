@@ -19,24 +19,17 @@ jobs:
           username: frappe
           key: ${{ secrets.SSH_PRIVATE_KEY }}
           port: 22
+          timeout: 60s
+          command_timeout: 15m
           script: |
-            # 1. Enter the bench directory
             cd /home/frappe/frappe-bench
             
-            # 2. Pull the latest code from GitHub
-            # We use --force if you've made manual edits on the server, 
-            # but usually a standard pull is safer for production.
+            # 1. Pull the latest code
             git pull origin main
             
-            # 3. Securely update the database schema and run patches
-            # This is the most critical step in Frappe deployments
+            # 2. Update the database
             bench migrate
             
-            # 4. Rebuild JS/CSS assets (crucial if you modify UI)
-            # bench build
-            
-            # 5. Clear application cache
+            # 3. Clear cache and restart
             bench clear-cache
-            
-            # 6. Restart all services (Web, Workers, Socketio)
             bench restart
