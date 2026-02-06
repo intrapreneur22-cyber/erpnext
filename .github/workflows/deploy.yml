@@ -10,24 +10,28 @@ jobs:
     runs-on: self-hosted
     
     steps:
-      - name: Checkout code
-        uses: actions/checkout@v3
-
       - name: Deploy Local Bench
         run: |
-          # Use bash explicitly
+          # Redirect all output to a log file we can read
+          LOG_FILE="/home/frappe/frappe-bench/deployment.log"
+          exec > >(tee -a "$LOG_FILE") 2>&1
+          
+          echo "=== Deployment Started: $(date) ==="
           export PATH=$PATH:/usr/local/bin:/home/frappe/.local/bin
           
           cd /home/frappe/frappe-bench
           
-          # 1. Clear local changes that might block git pull
-          git checkout .
-          git pull origin main
+          echo "--- Git Operations ---"
+          # Force clean and reset to match GitHub exactly
+          git fetch origin main
+          git reset --hard origin/main
+          git clean -fd
           
-          # 2. Update the database
-          # Use the full path for bench just in case
+          echo "--- Bench Migrate ---"
           /usr/local/bin/bench migrate
           
-          # 3. Clear cache and restart
+          echo "--- Bench Post-Deploy ---"
           /usr/local/bin/bench clear-cache
           /usr/local/bin/bench restart
+          
+          echo "=== Deployment Finished Successfully ==="
